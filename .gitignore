@@ -1,0 +1,16 @@
+# Build outputs
+/target
+/build
+
+# Claude / AI agent artifacts
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+/skills/
+.mcp.json
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+*.swp

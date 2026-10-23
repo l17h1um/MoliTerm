@@ -1,0 +1,26 @@
+name = "Monokai"
+dark = true
+
+[ui]
+bg = "#272822"
+panel = "#1e1f1c"
+surface = "#2d2e27"
+border = "#3e3d32"
+fg = "#f8f8f2"
+muted = "#75715e"
+accent = "#a6e22e"
+on_accent = "#272822"
+selection = "#49483e"
+danger = "#f92672"
+warning = "#fd971f"
+success = "#a6e22e"
+
+[term]
+fg = "#f8f8f2"
+bg = "#272822"
+cursor = "#f8f8f0"
+selection = "#49483e"
+ansi = [
+  "#272822", "#f92672", "#a6e22e", "#f4bf75", "#66d9ef", "#ae81ff", "#a1efe4", "#f8f8f2",
+  "#75715e", "#f92672", "#a6e22e", "#f4bf75", "#66d9ef", "#ae81ff", "#a1efe4", "#f9f8f5",
+]

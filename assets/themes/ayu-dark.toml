@@ -1,0 +1,26 @@
+name = "Ayu Dark"
+dark = true
+
+[ui]
+bg = "#0b0e14"
+panel = "#0d1017"
+surface = "#131721"
+border = "#1b1f29"
+fg = "#bfbdb6"
+muted = "#565b66"
+accent = "#e6b450"
+on_accent = "#0b0e14"
+selection = "#273747"
+danger = "#d95757"
+warning = "#ff8f40"
+success = "#7fd962"
+
+[term]
+fg = "#bfbdb6"
+bg = "#0b0e14"
+cursor = "#e6b450"
+selection = "#273747"
+ansi = [
+  "#11151c", "#ea6c73", "#7fd962", "#f9af4f", "#53bdfa", "#cda1fa", "#90e1c6", "#c7c7c7",
+  "#686868", "#f07178", "#aad94c", "#ffb454", "#59c2ff", "#d2a6ff", "#95e6cb", "#ffffff",
+]

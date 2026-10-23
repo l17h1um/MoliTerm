@@ -1,0 +1,26 @@
+name = "Ayu Mirage"
+dark = true
+
+[ui]
+bg = "#1f2430"
+panel = "#1c212b"
+surface = "#242936"
+border = "#171b24"
+fg = "#cccac2"
+muted = "#707a8c"
+accent = "#ffcc66"
+on_accent = "#1f2430"
+selection = "#33415e"
+danger = "#ff6666"
+warning = "#ffad66"
+success = "#87d96c"
+
+[term]
+fg = "#cccac2"
+bg = "#1f2430"
+cursor = "#ffcc66"
+selection = "#33415e"
+ansi = [
+  "#171b24", "#ed8274", "#87d96c", "#facc6e", "#6dcbfa", "#dabafa", "#90e1c6", "#c7c7c7",
+  "#686868", "#f28779", "#d5ff80", "#ffd173", "#73d0ff", "#dfbfff", "#95e6cb", "#ffffff",
+]

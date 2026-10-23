@@ -1,0 +1,26 @@
+name = "Ayu Light"
+dark = false
+
+[ui]
+bg = "#f8f9fa"
+panel = "#f3f4f5"
+surface = "#fcfcfc"
+border = "#e1e3e6"
+fg = "#5c6166"
+muted = "#8a9199"
+accent = "#ffaa33"
+on_accent = "#ffffff"
+selection = "#d1e4f4"
+danger = "#e65050"
+warning = "#fa8d3e"
+success = "#6cbf43"
+
+[term]
+fg = "#5c6166"
+bg = "#fcfcfc"
+cursor = "#ffaa33"
+selection = "#d1e4f4"
+ansi = [
+  "#000000", "#d84848", "#4f7f12", "#8a6110", "#3a7bc8", "#8c55c8", "#2f8a8a", "#a0a0a0",
+  "#686868", "#f07171", "#86b300", "#f2ae49", "#399ee6", "#a37acc", "#4cbf99", "#d0d0d0",
+]

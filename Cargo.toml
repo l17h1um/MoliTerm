@@ -1,0 +1,78 @@
+[workspace]
+resolver = "3"
+members = ["crates/core", "crates/app"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+# Exact pins; see DECISIONS.md.
+[workspace.dependencies]
+moliterm-core = { path = "crates/core" }
+alacritty_terminal = "=0.26.0"
+anyhow = "=1.0.104"
+arboard = "=3.6.1"
+argon2 = "=0.5.3"
+base64 = "=0.22.1"
+chacha20poly1305 = "=0.10.1"
+chrono = { version = "=0.4.45", default-features = false, features = ["clock"] }
+directories = "=6.0.0"
+eframe = { version = "=0.36.2", default-features = false, features = ["accesskit", "default_fonts", "links", "wgpu", "glow", "wayland", "x11", "persistence"] }
+egui = "=0.36.2"
+egui_dock = { version = "=0.21.1", features = ["serde"] }
+getrandom = { version = "=0.4.3", features = ["sys_rng"] }
+hmac = "=0.12.1"
+fluent-bundle = "=0.16.0"
+fontdb = "=0.24.0"
+portable-pty = "=0.9.0"
+rand_core = { version = "=0.6.4", features = ["getrandom"] }
+regex = "=1.13.1"
+rfd = "=0.17.2"
+memmap2 = "=0.9.11"
+encoding_rs = "=0.8.42"
+sha2 = "=0.11.1"
+ironrdp-connector = "=0.10.0"
+ironrdp-session = "=0.11.0"
+ironrdp-graphics = "=0.9.0"
+ironrdp-input = "=0.7.0"
+ironrdp-pdu = "=0.9.0"
+ironrdp-core = "=0.2.1"
+ironrdp-svc = "=0.8.0"
+ironrdp-dvc = "=0.8.0"
+ironrdp-cliprdr = "=0.7.0"
+ironrdp-displaycontrol = "=0.8.0"
+ironrdp-tokio = { version = "=0.10.0", default-features = false }
+ironrdp-tls = { version = "=0.2.2", features = ["rustls-ring"] }
+x509-cert = { version = "0.2", default-features = false, features = ["std"] }
+serialport = { version = "=4.10.1", default-features = false }
+muda = { version = "=0.21.2", default-features = false }
+russh = { version = "=0.64.1", default-features = false, features = ["flate2", "ring", "rsa", "des"] }
+russh-sftp = "=3.0.1"
+rusqlite = { version = "=0.40.2", features = ["bundled"] }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.154"
+sha1 = "=0.10.7"
+sys-locale = "=0.3.2"
+thiserror = "=2.0.21"
+tokio = { version = "=1.53.2", features = ["rt-multi-thread", "sync", "time", "macros", "net", "io-util", "fs"] }
+toml = "=1.1.8"
+tracing = "=0.1.44"
+tracing-appender = "=0.2.5"
+tracing-subscriber = { version = "=0.3.23", features = ["env-filter"] }
+unic-langid = "=0.9.6"
+zeroize = { version = "=1.9.1", features = ["derive"] }
+uuid = { version = "=1.28.0", features = ["v7"] }
+
+[profile.release]
+strip = true
+lto = "thin"
+
+[profile.dev.package."*"]
+opt-level = 2
+
+# IronRDP's picky/sspi pin RustCrypto release candidates that clash with the
+# final releases russh uses; local copies with those pins relaxed (see DECISIONS.md).
+[patch.crates-io]
+picky = { path = "vendor/picky" }
+sspi = { path = "vendor/sspi" }

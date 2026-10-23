@@ -1,0 +1,25 @@
+# Test servers for manual checks and `cargo test --features it` (SPEC §13).
+#   docker compose -f dev/docker-compose.yml up -d --build
+# Users: test / test  (keys: dev/keys/test_ed25519, test_ed25519_enc with passphrase "testpass")
+services:
+  sshd:            # password + key, SFTP enabled
+    build: ./sshd
+    ports: ["2222:22"]
+  sshd-nosftp:     # no sftp subsystem → SCP fallback (Phase 3)
+    build:
+      context: ./sshd
+      args: { SFTP: "no" }
+    ports: ["2223:22"]
+  bastion:         # jump host; reaches `target` which has no published port
+    build: ./sshd
+    ports: ["2224:22"]
+  target:          # only reachable through the bastion as target:22
+    build: ./sshd
+  telnetd:         # busybox telnetd, login test / test (Phase 5)
+    image: alpine:3.20
+    command: sh -c "apk add --no-cache busybox-extras && (id test >/dev/null 2>&1 || adduser -D test) && echo test:test | chpasswd && exec busybox-extras telnetd -F -p 23 -l /bin/login"
+    ports: ["2323:23"]
+  xrdp:            # RDP smoke tests (Phase 7), user test / test (also ubuntu / ubuntu)
+    image: scottyhardy/docker-remote-desktop:latest
+    entrypoint: ["sh", "-c", "id test >/dev/null 2>&1 || { useradd -m -s /bin/bash test && echo test:test | chpasswd; }; exec /usr/bin/entrypoint"]
+    ports: ["3390:3389"]
